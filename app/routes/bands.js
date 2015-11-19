@@ -33,9 +33,16 @@ var BandsCollection = Ember.Object.extend({
 
 
 
-var ledZeppelin = Band.create({ name: 'Led Zeppelin', songs: [blackDog] }); 
-var pearlJam = Band.create({ name: 'Pearl Jam', songs: [daughter, yellowLedbetter] });
-var fooFighters = Band.create({ name: 'Foo Fighters', songs: [pretender] });
+var ledZeppelin = Band.create({ 
+	name: 'Led Zeppelin', 
+	songs: [blackDog] }); 
+var pearlJam = Band.create({ 
+	name: 'Pearl Jam',
+	description: 'Pearl Jam is an American rock band from Seattle',
+	songs: [daughter, yellowLedbetter] });
+var fooFighters = Band.create({ 
+	name: 'Foo Fighters', 
+	songs: [pretender] });
 
 var bands = BandsCollection.create();
 bands.get('content'). pushObjects([ledZeppelin, pearlJam, fooFighters]);
@@ -46,6 +53,9 @@ return bands;
 },
 
 actions: {
+	didTransition: function() {
+		document.title = 'Bands - Rock & Roll';
+	},
 	createBand: function() {
 		var name = this.get('controller').get('name');
 		var band = Band.create({ name: name });
