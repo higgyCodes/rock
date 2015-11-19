@@ -17,8 +17,10 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     apiHost: 'http://json-api.rockandrollwithemberjs.com',
+
     contentSecurityPolicy: contentSecurityPolicy,
     EmberENV: {
+      contentSecurityPolicy: contentSecurityPolicy,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
